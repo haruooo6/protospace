@@ -40,6 +40,7 @@ DB設計書
 ### アソシエーション
   has_many :comments  
   has_many :prototypes  
+  has_many :likes  
 
 ## tag
   id  
@@ -71,6 +72,6 @@ DB設計書
   prototype_id(integer)  
 
 ### アソシエーション
-  belongs_to :prototype, :counter_cache => like_count  
-
+  belongs_to :prototype, :counter_cache: like_count  
+  belongs_to :user  
   
