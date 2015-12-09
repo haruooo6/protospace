@@ -7,6 +7,8 @@ DB設計書
   title(string)  
   catchcopy(string)  
   concept(text)  
+  user_id(integer)  
+  tag_id(integer)  
 
 ### アソシエーション
   belongs_to :user  
@@ -36,8 +38,8 @@ DB設計書
   email,passwordなど(deviseで生成されるカラム)  
 
 ### アソシエーション
-  has_many :comment  
-  has_many :prototype  
+  has_many :comments  
+  has_many :prototypes  
 
 ## tag
   id  
@@ -49,25 +51,26 @@ DB設計書
 ## prototype_tag
   id  
   tag_id(integer)  
-  protospace_id  (integer)
+  prototype_id(integer)  
 
-###アソシエーション
+### アソシエーション
   belongs_to :prototype  
   belongs_to :tag  
-
 
 ## picture
   id  
   prototype_id(integer)  
-  picture(text)  
+  enum picuture: [:main, :sub1, :sub2, sub3]  
 
 ### アソシエーション
   belongs_to :prototype  
 
 ## like
   id  
-  like(integer)  
+  like_count(integer)  
+  prototype_id(integer)  
 
 ### アソシエーション
-  belongs_to :prototype  
+  belongs_to :prototype, :counter_cache => like_count  
+
   
