@@ -18,7 +18,6 @@ DB設計書
   has_many :pictures  
   has_many :likes  
 
-
 ## comment
   id  
   comment(text)  
@@ -61,7 +60,7 @@ DB設計書
 ## picture
   id  
   prototype_id(integer)  
-  enum picuture: [:main, :sub1, :sub2, sub3]  
+  enum picuture: [:main, :sub1, :sub2, :sub3]  
 
 ### アソシエーション
   belongs_to :prototype  
