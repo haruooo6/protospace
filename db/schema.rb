@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151211140035) do
+ActiveRecord::Schema.define(version: 20151212135545) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment",      limit: 65535
@@ -25,27 +25,19 @@ ActiveRecord::Schema.define(version: 20151211140035) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "likes", force: :cascade do |t|
-    t.integer  "like_count",   limit: 4
+    t.integer  "like_count", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.integer  "picture",      limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "prototype_id", limit: 4
   end
 
-  create_table "pictures", force: :cascade do |t|
-    t.integer  "picture",    limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  create_table "prototype_tags", force: :cascade do |t|
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.integer  "tag_id",      limit: 4
-    t.integer  "prtotype_id", limit: 4
-  end
-
-  add_index "prototype_tags", ["prtotype_id"], name: "index_prototype_tags_on_prtotype_id", using: :btree
-  add_index "prototype_tags", ["tag_id"], name: "index_prototype_tags_on_tag_id", using: :btree
+  add_index "pictures", ["prototype_id"], name: "index_pictures_on_prototype_id", using: :btree
 
   create_table "prototypes", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -76,7 +68,7 @@ ActiveRecord::Schema.define(version: 20151211140035) do
 
   add_foreign_key "comments", "prototypes"
   add_foreign_key "comments", "users"
-  add_foreign_key "prototype_tags", "tags"
+  add_foreign_key "pictures", "prototypes"
   add_foreign_key "prototypes", "tags"
   add_foreign_key "prototypes", "users"
 end
