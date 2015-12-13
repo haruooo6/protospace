@@ -44,5 +44,6 @@ group :development, :test do
   gem 'devise'
   gem 'carrierwave'
   gem 'pry-rails'
+  gem 'acts_as_taggable_on'
 end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151212135545) do
+ActiveRecord::Schema.define(version: 20151213040829) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment",      limit: 65535
@@ -46,16 +46,25 @@ ActiveRecord::Schema.define(version: 20151212135545) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "user_id",    limit: 4
-    t.integer  "tag_id",     limit: 4
   end
 
-  add_index "prototypes", ["tag_id"], name: "index_prototypes_on_tag_id", using: :btree
   add_index "prototypes", ["user_id"], name: "index_prototypes_on_user_id", using: :btree
 
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id",        limit: 4
+    t.integer  "taggable_id",   limit: 4
+    t.string   "taggable_type", limit: 255
+    t.integer  "tagger_id",     limit: 4
+    t.string   "tagger_type",   limit: 255
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+
   create_table "tags", force: :cascade do |t|
-    t.string   "tag_name",   limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string "name", limit: 255
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,6 +78,5 @@ ActiveRecord::Schema.define(version: 20151212135545) do
   add_foreign_key "comments", "prototypes"
   add_foreign_key "comments", "users"
   add_foreign_key "pictures", "prototypes"
-  add_foreign_key "prototypes", "tags"
   add_foreign_key "prototypes", "users"
 end

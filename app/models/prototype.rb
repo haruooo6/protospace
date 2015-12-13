@@ -5,4 +5,5 @@ class Prototype < ActiveRecord::Base
   has_many :tags, through: :prototype_tag
   has_many :picutures
   has_many :likes
+  act_as_taggable_on :prototype
 end
