@@ -45,5 +45,9 @@ group :development, :test do
   gem 'carrierwave'
   gem 'pry-rails'
   gem 'acts_as_taggable_on'
+  gem 'haml-rails'
+  gem 'erb2haml'
+  gem 'bootstrap-sass'
 end
+
 

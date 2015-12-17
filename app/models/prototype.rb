@@ -4,6 +4,6 @@ class Prototype < ActiveRecord::Base
   has_many :comments
   has_many :picutures
   has_many :likes
-  act_as_taggable_on :prototype
+  # act_as_taggable_on :prototype
 end
 
