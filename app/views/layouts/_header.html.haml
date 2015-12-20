@@ -16,11 +16,12 @@
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
             %a.dropdown-toggle{aria: {expanded: "false"}, data: {toggle: "dropdown"}, href: "#", role:  "button"}
-              UserName
+              =current_user.nickname
               %span.caret
             %ul.dropdown-menu{role: "menu"}
               %li
-                %a{href: "#"} Profile Edit
+                %a
+                = link_to "Profile Edit", edit_user_path(current_user)
               %li
                 %a
                 = link_to "Logout", '/users/sign_out', method: :delete
@@ -28,6 +29,7 @@
             .btn.btn-primary.navbar-btn
               %a{href: "/proto/new"}
                 New Proto
+
 
 
 
