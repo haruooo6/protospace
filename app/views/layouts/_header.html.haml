@@ -21,7 +21,7 @@
             %ul.dropdown-menu{role: "menu"}
               %li
                 %a
-                = link_to "Profile Edit", edit_user_path(current_user)
+                = link_to "Profile Edit", edit_user_registration_path(current_user)
               %li
                 %a
                 = link_to "Logout", '/users/sign_out', method: :delete
@@ -29,6 +29,7 @@
             .btn.btn-primary.navbar-btn
               %a{href: "/proto/new"}
                 New Proto
+
 
 
 
