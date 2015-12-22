@@ -10,8 +10,7 @@
         %ul.nav.navbar-nav.navbar-right
           %li
             .btn.btn-primary.navbar-btn
-              %a
-              = link_to "Get Started", '/users/sign_in'
+              = link_to "Get Started", new_user_session_path
       -else
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
@@ -20,16 +19,9 @@
               %span.caret
             %ul.dropdown-menu{role: "menu"}
               %li
-                %a
                 = link_to "Profile Edit", edit_user_registration_path(current_user)
               %li
-                %a
-                = link_to "Logout", '/users/sign_out', method: :delete
+                = link_to "Logout", destroy_user_session_path, method: :delete
           %li
             .btn.btn-primary.navbar-btn
-              %a{href: "/proto/new"}
-                New Proto
-
-
-
-
+              = link_to "New Proto", new_prototype_path
