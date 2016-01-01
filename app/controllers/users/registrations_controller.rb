@@ -11,28 +11,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    User.create(create_params)
-    redirect_to controller: :prototypes, action: :index
-    # -binding.pry
   end
 
   # GET /resource/edit
   def edit
     super
-    -binding.pry
   end
 
   # PUT /resource
   def update
     super
-    User.update
-    # -binding.pry
-    redirect_to controller: :prototypes, action: :index
-  end
-
-  private
-  def create_params
-    params.require(:user).permit(:nickname, :profile, :works, :avatar)
   end
 
   # DELETE /resource
@@ -57,7 +45,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
     # devise_parameter_sanitizer.for(:sign_up).push(:nickname, :profile, :works)
-    devise_parameter_sanitizer.for(:account_update).push(:nickname, :profile, :works, :avatar)
+    devise_parameter_sanitizer.for(:account_update).push(:nickname, :profile, :works, :avatar, :group)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
