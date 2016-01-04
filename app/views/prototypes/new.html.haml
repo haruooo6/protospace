@@ -5,17 +5,18 @@
         .proto-new-title
           = f.text_field :title, placeholder: "Title"
     .row
+    = f.fields_for :pictures do |picture|
       .col-md-12
         .cover-image-upload
-          = f.file_field :picture
+          = picture.file_field :picture
       .col-md-12
         %ul.proto-sub-list.list-group
           %li.list-group-item.col-md-4
             .image-upload
-              = f.file_field :picture
+              = picture.file_field :picture
           %li.list-group-item.col-md-4
             .image-upload
-              = f.file_field :picture
+              = picture.file_field :picture
           %li.list-group-item.col-md-4
             .image-upload-plus
               %span +

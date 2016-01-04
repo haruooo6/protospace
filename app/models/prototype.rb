@@ -7,4 +7,3 @@ class Prototype < ActiveRecord::Base
   accepts_nested_attributes_for :pictures
   # act_as_taggable_on :prototype
 end
-
