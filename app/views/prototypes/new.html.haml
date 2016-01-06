@@ -8,18 +8,18 @@
     = f.fields_for :pictures do |picture|
       .col-md-12
         .cover-image-upload
-          = picture.file_field :picture
+          = picture.file_field :main
       .col-md-12
         %ul.proto-sub-list.list-group
           %li.list-group-item.col-md-4
             .image-upload
-              = picture.file_field :picture
+              = picture.file_field :sub1
           %li.list-group-item.col-md-4
             .image-upload
-              = picture.file_field :picture
+              = picture.file_field :sub2
           %li.list-group-item.col-md-4
-            .image-upload-plus
-              %span +
+            .image-upload
+              = picture.file_field :sub3
     .row.proto-description
       .col-md-12
         = f.text_field :catchcopy, placeholder: "Catch Copy"

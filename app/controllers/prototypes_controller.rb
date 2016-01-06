@@ -11,10 +11,11 @@ class PrototypesController < ApplicationController
   def create
     @prototype = Prototype.create(create_params)
     redirect_to action: 'index'
+    @prototype.pictures.build
   end
 
   private
   def create_params
-    params.require(:prototype).permit(:title, :catchcopy, :concept, pictures_attributes: [:picture] ).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:title, :catchcopy, :concept, pictures_attributes: [:main, :sub1, :sub2, :sub3] ).merge(user_id: current_user.id)
   end
 end
