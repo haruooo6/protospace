@@ -1,17 +1,35 @@
 .col-sm-4.col-md-3.proto-content
   .thumbnail
-    %a{href: ""}
-      = image_tag("sample.png")
-      .caption
-        %h3 aaaaa
-        .proto-meta
-          .proto-user
-            %a{href: "#"} by user
-          .proto-posted
-            Apr 26
-        %ul.proto-tag-list.list-inline
-          %li 
-            %a{href: "#", class: "btn btn-default"} iPad
-          %li 
-            %a{href: "#", class: "btn btn-default"} wireframe
+  = link_to prototype_path(@prototypes) do
+    = image_tag prototype.pictures.main
+    .caption
+      %h3
+      = prototype.title
+      .proto-meta
+        .proto-user
+          = prototype.user.nickname
+        .proto-posted
+          = prototype.created_at.strftime("%b%d")
+      %ul.proto-tag-list.list-inline
+        %li
+          = link_to "iPad", "#", class: 'btn btn-default'
+        %li
+          = link_to "wireframe", "#", class: 'btn btn-default'
 
+  / .thumbnail
+  /   %a{href: ""}
+  /     = image_tag("sample.png")
+  /     .caption
+  /       %h3
+  /       =prototype.title
+  /       .proto-meta
+  /         .proto-user
+  /         = link_to "#{prototype.user.nickname}", user_path
+  /           %a{href: "#"} by user
+  /         .proto-posted
+  /           Apr 26
+  /       %ul.proto-tag-list.list-inline
+  /         %li 
+  /           %a{href: "#", class: "btn btn-default"} iPad
+  /         %li 
+  /           %a{href: "#", class: "btn btn-default"} wireframe
