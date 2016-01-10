@@ -1,7 +1,7 @@
 .col-sm-4.col-md-3.proto-content
   .thumbnail
   = link_to prototype_path(@prototypes) do
-    = image_tag prototype.pictures.main
+    = image_tag ('#')
     .caption
       %h3
       = prototype.title
@@ -16,20 +16,3 @@
         %li
           = link_to "wireframe", "#", class: 'btn btn-default'
 
-  / .thumbnail
-  /   %a{href: ""}
-  /     = image_tag("sample.png")
-  /     .caption
-  /       %h3
-  /       =prototype.title
-  /       .proto-meta
-  /         .proto-user
-  /         = link_to "#{prototype.user.nickname}", user_path
-  /           %a{href: "#"} by user
-  /         .proto-posted
-  /           Apr 26
-  /       %ul.proto-tag-list.list-inline
-  /         %li 
-  /           %a{href: "#", class: "btn btn-default"} iPad
-  /         %li 
-  /           %a{href: "#", class: "btn btn-default"} wireframe

@@ -5,21 +5,24 @@
         .proto-new-title
           = f.text_field :title, placeholder: "Title"
     .row
-    = f.fields_for :pictures do |picture|
+    = f.fields_for :pictures do |p|
       .col-md-12
         .cover-image-upload
-          = picture.file_field :main
+          = p.file_field :thumbnail
+          = p.hidden_field :type, value: "main"
+
       .col-md-12
         %ul.proto-sub-list.list-group
           %li.list-group-item.col-md-4
             .image-upload
-              = picture.file_field :sub1
+              = p.file_field :thumbnail
+
           %li.list-group-item.col-md-4
             .image-upload
-              = picture.file_field :sub2
+              = p.file_field :thumbnail
           %li.list-group-item.col-md-4
             .image-upload
-              = picture.file_field :sub3
+              = p.file_field :thumbnail
     .row.proto-description
       .col-md-12
         = f.text_field :catchcopy, placeholder: "Catch Copy"
@@ -29,10 +32,10 @@
         %h4 Tag List
         .row
           .col-md-3
-            %input{:type => "text", :placeholder => "Web Design"}/
+            %input{type: "text", placeholder: "Web Design"}/
           .col-md-3
-            %input{:type => "text", :placeholder => "UI"}/
+            %input{type: "text", placeholder: "UI"}/
           .col-md-3
-            %input{:type => "text", :placeholder => "Application"}/
+            %input{type: "text", placeholder: "Application"}/
     .row.text-center.proto-btn
-      = f.submit 'Publish', class: "button btn btn-lg btn-primary btn-block"
+      = f.submit 'Publish', class: "button btn btn-lg btn-primary btn-block"  
