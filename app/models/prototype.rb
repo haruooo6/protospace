@@ -4,6 +4,10 @@ class Prototype < ActiveRecord::Base
   has_many :comments
   has_many :pictures
   has_many :likes
-  accepts_nested_attributes_for :pictures
+  accepts_nested_attributes_for :pictures, reject_if: :reject_pictures
+
+  def reject_pictures(attributes)
+    attributes['thumbnail'].blank?
+  end
   # act_as_taggable_on :prototype
 end
