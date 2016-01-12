@@ -1,6 +1,10 @@
 class PrototypesController < ApplicationController
   def index
-    @prototypes = Prototype.all
+    @prototypes = Prototype.order('id DESC')
+  end
+
+  def show
+    @prototype = Prototype.find(params[:id])
   end
 
   def new
@@ -11,7 +15,6 @@ class PrototypesController < ApplicationController
   def create
     @prototype = current_user.prototypes.create(create_params)
     redirect_to action: :index
-    @prototype.pictures.build
   end
 
   private
