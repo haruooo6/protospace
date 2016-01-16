@@ -1,4 +1,4 @@
-# encoding: utf-8
+# File.open("path/to/file.dump", "wb") { |file| Marshal.dump(obj, file) }# encoding: utf-8
 
 class AvatarUploader < CarrierWave::Uploader::Base
 

@@ -3,4 +3,5 @@ class Picture < ActiveRecord::Base
   accepts_nested_attributes_for :prototype
   mount_uploader :thumbnail, PicutureUploader
   enum status: %i(main sub)
+
 end

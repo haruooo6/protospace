@@ -1,7 +1,7 @@
 .col-sm-4.col-md-3.proto-content
   .thumbnail
-  = link_to prototype_path(prototype.id) do
-    = image_tag Picture.where(prototype_id: prototype.id, status: 0)
+  = link_to prototype_path(prototype) do
+    = image_tag (prototype.pictures[0] ? prototype.pictures[0].thumbnail : "sample.png")
   .caption
     %h3
     = prototype.title
