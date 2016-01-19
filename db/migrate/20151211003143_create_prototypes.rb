@@ -4,10 +4,8 @@ class CreatePrototypes < ActiveRecord::Migration
       t.string :title
       t.string :catchcopy
       t.text :concept
-      t.integer :user_id
-      t.integer :tag_id
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end

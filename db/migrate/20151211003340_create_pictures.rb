@@ -1,10 +1,10 @@
 class CreatePictures < ActiveRecord::Migration
   def change
     create_table :pictures do |t|
-      t.integer :prototype_id
-      t.integer :picture
+      t.string :thumbnail
+      t.integer :type
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end

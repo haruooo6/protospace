@@ -49,6 +49,5 @@ group :development, :test do
   gem 'erb2haml'
   gem 'bootstrap-sass'
   gem 'erb2haml'
+  gem 'rmagick', require: 'RMagick'
 end
-
-

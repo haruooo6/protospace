@@ -15,7 +15,7 @@
 .container.proto-list
   .row
 
-  = render 'prototype', collection: @prototypes
+  = render @prototypes
 
 
 
@@ -39,5 +39,3 @@
     %li
       %a{aria: {label: "Next"}, href: "#"}
         %span aria: {hidden: "true"} »
-
-

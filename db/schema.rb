@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220163104) do
+ActiveRecord::Schema.define(version: 20160118115913) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment",      limit: 65535
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "prototype_id", limit: 4
     t.integer  "user_id",      limit: 4
   end
@@ -26,14 +26,15 @@ ActiveRecord::Schema.define(version: 20151220163104) do
 
   create_table "likes", force: :cascade do |t|
     t.integer  "like_count", limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pictures", force: :cascade do |t|
-    t.integer  "picture",      limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "thumbnail",    limit: 255
+    t.integer  "status",       limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "prototype_id", limit: 4
   end
 
@@ -45,6 +46,7 @@ ActiveRecord::Schema.define(version: 20151220163104) do
     t.text     "concept",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "tag_id",     limit: 4
     t.integer  "user_id",    limit: 4
   end
 
@@ -68,11 +70,6 @@ ActiveRecord::Schema.define(version: 20151220163104) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "nickname",               limit: 255
-    t.text     "profile",                limit: 65535
-    t.text     "works",                  limit: 65535
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
     t.string   "email",                  limit: 255,   default: "", null: false
     t.string   "encrypted_password",     limit: 255,   default: "", null: false
     t.string   "reset_password_token",   limit: 255
@@ -83,8 +80,13 @@ ActiveRecord::Schema.define(version: 20151220163104) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.string   "avatar",                 limit: 255
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.string   "nickname",               limit: 255
+    t.text     "profile",                limit: 65535
+    t.text     "works",                  limit: 65535
     t.string   "group",                  limit: 255
+    t.string   "avatar",                 limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
