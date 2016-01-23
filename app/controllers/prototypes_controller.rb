@@ -13,12 +13,28 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    @prototype = current_user.prototypes.create(create_params)
+    @prototype = current_user.prototypes.create(prototype_params)
+    redirect_to action: :index
+  end
+
+  def destroy
+    prototype = Prototype.find(params[:id])
+    prototype.destroy if prototype.user_id == current_user.id
+    redirect_to action: :index
+  end
+
+  def edit
+    @prototype = Prototype.find(params[:id])
+  end
+
+  def update
+    prototype = Prototype.find(params[:id])
+    prototype.update(prototype_params) if prototype.user_id == current_user.id
     redirect_to action: :index
   end
 
   private
-  def create_params
+  def prototype_params
     params.require(:prototype).permit(:title, :catchcopy, :concept, pictures_attributes: [:thumbnail, :status] )
   end
 end
