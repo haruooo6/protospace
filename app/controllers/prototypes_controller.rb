@@ -14,7 +14,11 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = current_user.prototypes.create(prototype_params)
-    redirect_to action: :index
+    if @prototype.save
+      redirect_to action: :index
+    else
+      render action: :new
+    end
   end
 
   def destroy
