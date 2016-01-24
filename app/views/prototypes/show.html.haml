@@ -9,7 +9,7 @@
           %h4#top-aligned-media.media-heading
             = @prototype.title
           .proto-user
-            %a{:href => ""} by User
+            = link_to 'by' + @prototype.user.nickname, user_path(@prototype.user)
             %span.degree
             = @prototype.user.group
               
@@ -93,4 +93,3 @@
             %textarea.form-control{:placeholder => "Your comments", :rows => "3"}
           .form-group.col-md-2
             %button.btn.btn-primary Comment
-            
