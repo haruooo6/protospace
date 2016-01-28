@@ -1,11 +1,13 @@
 class Prototype < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   belongs_to :tag
   has_many :comments
-  has_many :pictures
+  has_many :pictures, dependent: :destroy
   has_many :likes
 
   accepts_nested_attributes_for :pictures, reject_if: :reject_pictures
+
+  validates :title, :catchcopy, :concept, presence: true
 
   def reject_pictures(attributes)
     attributes['thumbnail'].blank?

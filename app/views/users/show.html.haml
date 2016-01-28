@@ -1,0 +1,66 @@
+.container.user-page
+  %header.user-nav
+    .media
+      .media-left
+        %img.media-object
+        = image_tag @user.avatar, size: "64x64", alt: "64x64"
+      .media-body
+        %h4#top-aligned-media.media-heading
+          Top aligned media
+          %span.label.label-default.project-number
+            = @user.prototypes_count
+            %i Projects
+        .proto-user
+          %span.degree
+          = @user.group
+        .row
+          .col-md-6
+            %h4 Profile
+            %p
+            = @user.profile
+          .col-md-6
+            %h4 Works
+            %p
+            = @user.works
+.container.proto-list
+  .row
+  - @user.prototypes.each do |prototype|
+    .col-sm-4.col-md-3.proto-content
+      .thumbnail
+        = link_to prototype_path(prototype) do
+          = image_tag(prototype.pictures.main[0].thumbnail)
+          .caption
+            %h3
+            = prototype.title
+            .proto-meta
+              .proto-user
+                %a
+                = link_to prototype.user.nickname, user_path(prototype.user)
+              .proto-posted
+                = prototype.created_at.strftime("%b%d")
+            %ul.proto-tag-list.list-inline
+              %li 
+                %a{href: "#", class: "btn btn-default"}   iPad
+              %li 
+                %a{href: "#", class: "btn btn-default"}   wireframe
+
+.text-center
+  %ul.pagination
+    %li.disabled
+      %a{ aria: { label: "Previous" }, href: "#"}
+        %span{ aria: { hidden: true }}
+    %li.active
+      %a{ href: "#" }
+        1
+        %span.sr-only (current)
+    %li
+      %a{ href: "#" } 2
+    %li
+      %a{ href: "#" } 3
+    %li
+      %a{ href: "#" } 4
+    %li
+      %a{ href: "#" } 5
+    %li
+      %a{ aria: { label: "Next" }, href: "#" }
+        %span{ aria: { hidden: 'true' }}

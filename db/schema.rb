@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118115913) do
+ActiveRecord::Schema.define(version: 20160126024644) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment",      limit: 65535
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20160118115913) do
     t.text     "works",                  limit: 65535
     t.string   "group",                  limit: 255
     t.string   "avatar",                 limit: 255
+    t.integer  "prototypes_count",       limit: 4
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
