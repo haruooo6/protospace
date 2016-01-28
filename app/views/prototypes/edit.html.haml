@@ -8,8 +8,8 @@
       .col-md-12
         .cover-image-upload
           = f.fields_for :pictures do |pic|
-        = pic.file_field :thumbnail
-            = pic.hidden_field :status, value: 'main'
+            = pic.file_field :thumbnail
+            = pic.hidden_field :status, value: :main
 
       .col-md-12
       -3.times do
@@ -18,7 +18,7 @@
             .image-upload
               = f.fields_for :pictures do |pic|
                 = pic.file_field :thumbnail
-                = pic.hidden_field :status, value: 'sub'
+                = pic.hidden_field :status, value: :sub
 
     .row.proto-description
       .col-md-12

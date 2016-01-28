@@ -7,7 +7,7 @@ class Prototype < ActiveRecord::Base
 
   accepts_nested_attributes_for :pictures, reject_if: :reject_pictures
 
-  validate :title, :catchcopy
+  validates :title, :catchcopy, :concept, presence: true
 
   def reject_pictures(attributes)
     attributes['thumbnail'].blank?
