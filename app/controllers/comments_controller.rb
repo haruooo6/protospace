@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   def create
     @prototype = Prototype.find(params[:prototype_id])
     Comment.create(comment_params)
-    redirect_to :back
   end
 
   private

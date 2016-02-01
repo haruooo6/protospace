@@ -50,14 +50,13 @@
       .col-md-8
 
       #comments
-      = render partial: 'prototypes/comments/comment', collection: @prototype.comments
+        = render partial: 'prototypes/comment', collection: @prototype.comments
 
       %form.form-inline{ role: "form" }
-      = form_for [@prototype, @comment] do |f|
+      = form_for [@prototype, @comment], remote: true do |f|
         %h4 Write a comment
         .row
           .form-group.col-md-10
-            = f.text_area :comment, placeholder: "Your comments", rows: "3", class: "textarea form-control"
+            = f.text_area :comment, placeholder: "Your comments", rows: "3", class: "textarea form-control", id: "comment_area"
           .form-group.col-md-2
             = f.submit 'Comment', class: "button btn btn-primary"
-
