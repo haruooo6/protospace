@@ -14,11 +14,11 @@
             = @prototype.user.group
 
     .col-md-6.text-right
-      %button.btn.btn-default
-        = link_to image_tag("icon_heart.svg"), prototype_likes_path(@prototype), method: 'post'
+      = button_to prototype_likes_path(@prototype), method: :post, remote: true, class: "btn btn-default" do
+        = image_tag("icon_heart.svg")
         Like
         %span.num
-          = @likes.count
+          = render partial: 'prototypes/like'
   .row
     .col-md-9
       = image_tag(@prototype.pictures.main[0].thumbnail, class: 'img-responsive')
