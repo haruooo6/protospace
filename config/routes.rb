@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :prototypes do
     resources :pictures
     resources :comments, only: [:create]
+    resources :likes, only: [:create, :destroy]
   end
 end
