@@ -13,12 +13,9 @@
             %span.degree
             = @prototype.user.group
 
-    .col-md-6.text-right
-      = button_to prototype_likes_path(@prototype), method: :post, remote: true, class: "btn btn-default" do
-        = image_tag("icon_heart.svg")
-        Like
-        %span.num
-          = render partial: 'prototypes/like'
+    .col-md-6.text-right#like_button
+      = render partial: 'prototypes/like'
+
   .row
     .col-md-9
       = image_tag(@prototype.pictures.main[0].thumbnail, class: 'img-responsive')
