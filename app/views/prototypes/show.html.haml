@@ -14,7 +14,7 @@
             = @prototype.user.group
 
     .col-md-6.text-right#like_button
-      = render partial: 'prototypes/like'
+      = render partial: 'likes/like', locals: { prototype: @prototype, likes: @likes }
 
   .row
     .col-md-9
@@ -49,8 +49,9 @@
       .col-md-8
 
       #comments
-        = render partial: 'prototypes/comment', collection: @prototype.comments
+        = render @comments
 
+    - if user_signed_in?
       %form.form-inline{ role: "form" }
       = form_for [@prototype, @comment], remote: true do |f|
         %h4 Write a comment

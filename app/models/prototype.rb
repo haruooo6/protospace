@@ -3,7 +3,7 @@ class Prototype < ActiveRecord::Base
   belongs_to :tag
   has_many :comments
   has_many :pictures, dependent: :destroy
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   accepts_nested_attributes_for :pictures, reject_if: :reject_pictures
 
