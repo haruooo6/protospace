@@ -1,7 +1,7 @@
 $('#comment_area').val('');
 $('#comments').html(
-  '<%= j(render partial: "comments/comment", collection: @prototype.comments) %>'
+  '<%= j(render partial: 'prototypes/comment', collection: @prototype.comments) %>'
 );
 $('span.num').html(
-  "<%= "#{@prototype.comments_count}" %>"
+  "<%= j("#{@prototype.comments_count}") %>"
 );
