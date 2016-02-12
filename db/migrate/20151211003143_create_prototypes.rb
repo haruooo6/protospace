@@ -4,6 +4,7 @@ class CreatePrototypes < ActiveRecord::Migration
       t.string :title
       t.string :catchcopy
       t.text :concept
+      t.integer :likes_count
 
       t.timestamps
     end

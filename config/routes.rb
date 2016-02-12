@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   registrations: 'users/registrations'
   }
   resources :users, only: :show
+
   resources :prototypes do
     resources :pictures
+    resources :comments, only: [:create]
+    resources :likes, only: [:create, :destroy]
   end
 end

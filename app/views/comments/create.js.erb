@@ -1,0 +1,7 @@
+$('#comment_area').val('');
+$('#comments').html(
+  '<%= j(render @prototype.comments) %>'
+);
+$('span.num').html(
+  "<%= j("#{@prototype.comments_count}") %>"
+);
