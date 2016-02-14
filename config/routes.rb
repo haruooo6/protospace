@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   registrations: 'users/registrations'
   }
   resources :users, only: :show
+  resources :newest, only: :index
+  resources :popular, only: :index
 
   resources :prototypes do
     resources :pictures
