@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   def index
-    @prototypes = Prototype.order(id: :DESC).includes(:user)
+    @prototypes = Prototype.order('rand()').includes(:user)
   end
 
   def show
