@@ -50,4 +50,5 @@ group :development, :test do
   gem 'bootstrap-sass'
   gem 'erb2haml'
   gem 'rmagick', require: 'RMagick'
+  gem 'jquery-turbolinks'
 end

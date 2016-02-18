@@ -5,19 +5,12 @@
 .filter-nav
   .container
     .row
-      %ul.nav.nav-pills.col-lg-11
-        %li.active{role: "presentation"}
-          %a{href: "#"} Popular PROTO
-        %li{role: "presentation"}
-          %a{href: "#"} Newest PROTO
-      %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
+    = render 'nav'
 
 .container.proto-list
-  .row
+  .row#proto
 
   = render @prototypes
-
-
 
 .text-center
   %ul.pagination
