@@ -9,6 +9,8 @@ class Prototype < ActiveRecord::Base
 
   validates :title, :catchcopy, :concept, presence: true
 
+  acts_as_taggable_on :prototypes
+
   def reject_pictures(attributes)
     attributes['thumbnail'].blank?
   end
