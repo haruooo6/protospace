@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :newest, only: :index
   resources :popular, only: :index
-  resources :tags, only: [:index]
-  
+  resources :tags, only: [:index, :show]
+
   resources :prototypes do
     resources :pictures
     resources :comments, only: [:create]

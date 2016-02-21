@@ -42,6 +42,6 @@ class PrototypesController < ApplicationController
 
   private
   def prototype_params
-    params.require(:prototype).permit(:title, :catchcopy, :concept, pictures_attributes: [:id, :thumbnail, :status] )
+    params.require(:prototype).permit(:title, :catchcopy, :concept, pictures_attributes: [:id, :thumbnail, :status] ).merge(label_list: params[:prototype][:label])
   end
 end

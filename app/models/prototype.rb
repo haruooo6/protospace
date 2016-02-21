@@ -9,7 +9,7 @@ class Prototype < ActiveRecord::Base
 
   validates :title, :catchcopy, :concept, presence: true
 
-  acts_as_taggable_on :prototypes
+  acts_as_taggable_on :labels
 
   def reject_pictures(attributes)
     attributes['thumbnail'].blank?
@@ -18,5 +18,4 @@ class Prototype < ActiveRecord::Base
   def like_user(user)
     likes.find_by(user_id: user.id)
   end
-  # act_as_taggable_on :prototype
 end

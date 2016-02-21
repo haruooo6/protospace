@@ -44,7 +44,7 @@ group :development, :test do
   gem 'devise'
   gem 'carrierwave'
   gem 'pry-rails'
-  gem 'acts_as_taggable_on'
+  gem 'acts-as-taggable-on', '~> 3.4'
   gem 'haml-rails'
   gem 'erb2haml'
   gem 'bootstrap-sass'
