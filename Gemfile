@@ -51,4 +51,8 @@ group :development, :test do
   gem 'erb2haml'
   gem 'rmagick', require: 'RMagick'
   gem 'jquery-turbolinks'
+  gem 'kaminari'
+  gem 'therubyracer'
+  gem 'less-rails'
+  gem 'twitter-bootstrap-rails'
 end

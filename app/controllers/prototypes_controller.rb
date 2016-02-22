@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   def index
-    @prototypes = Prototype.order('rand()').includes(:user)
+    @prototypes = Prototype.order('rand()').includes(:user).page(params[:page])
   end
 
   def show

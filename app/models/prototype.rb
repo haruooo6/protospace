@@ -11,6 +11,8 @@ class Prototype < ActiveRecord::Base
 
   acts_as_taggable_on :labels
 
+  paginates_per 5
+
   def reject_pictures(attributes)
     attributes['thumbnail'].blank?
   end
