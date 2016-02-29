@@ -6,28 +6,19 @@
           = f.text_field :title, placeholder: "Title"
     .row
       .col-md-12
-        .cover-image-upload#sub_img0
+        .cover-image-upload#upload0
           = f.fields_for :pictures do |pic|
             = pic.file_field :thumbnail, class: 'file_zone0'
             = pic.hidden_field :status, value: 'main'
-      %ul.proto-sub-list.list-group
-        %li.list-group-item.col-md-4
-          .image-upload#sub_img1
-            = f.fields_for :pictures do |pic|
-              = pic.file_field :thumbnail, class: 'file_zone1'
-              = pic.hidden_field :status, value: 'sub'
-      %ul.proto-sub-list.list-group
-        %li.list-group-item.col-md-4
-          .image-upload#sub_img2
-            = f.fields_for :pictures do |pic|
-              = pic.file_field :thumbnail, class: 'file_zone2'
-              = pic.hidden_field :status, value: 'sub'
-      %ul.proto-sub-list.list-group
-        %li.list-group-item.col-md-4
-          .image-upload#sub_img3
-            = f.fields_for :pictures do |pic|
-              = pic.file_field :thumbnail, class: 'file_zone3'
-              = pic.hidden_field :status, value: 'sub'
+
+      .col-md-12
+      - 3.times do |i|    
+        %ul.proto-sub-list.list-group
+          %li.list-group-item.col-md-4
+            .image-upload{id: "upload#{i + 1}"}
+              = f.fields_for :pictures do |pic|
+                = pic.file_field :thumbnail, class: "file_zone#{i + 1}"
+                = pic.hidden_field :status, value: 'sub'
 
     .row.proto-description
       .col-md-12
