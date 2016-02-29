@@ -21,8 +21,7 @@ class Prototype < ActiveRecord::Base
     likes.find_by(user_id: user.id)
   end
 
-  def sub_img(sub)
-    sub.pictures.sub.present?
+  def sub_img
+    pictures.sub.present?
   end
-
 end

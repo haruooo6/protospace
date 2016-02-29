@@ -10,7 +10,6 @@
           = f.fields_for :pictures do |pic|
             = pic.file_field :thumbnail, class: 'file_zone0'
             = pic.hidden_field :status, value: 'main'
-
       %ul.proto-sub-list.list-group
         %li.list-group-item.col-md-4
           .image-upload#sub_img1

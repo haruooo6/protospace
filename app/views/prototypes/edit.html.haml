@@ -16,21 +16,21 @@
         %li.list-group-item.col-md-4
           .image-upload#sub_img1
             = f.fields_for :pictures, (@prototype.pictures.sub[0]) do |pic|
-              = image_tag(@prototype.pictures.sub[0].thumbnail) if @prototype.sub_img(@prototype)
+              = image_tag(@prototype.pictures.sub[0].thumbnail) if @prototype.sub_img
               = pic.file_field :thumbnail, class: 'file_zone1'
               = pic.hidden_field :status, value: 'sub'
       %ul.proto-sub-list.list-group
         %li.list-group-item.col-md-4
           .image-upload#sub_img2
             = f.fields_for :pictures, (@prototype.pictures.sub[1]) do |pic|
-              = image_tag(@prototype.pictures.sub[1].thumbnail) if @prototype.sub_img(@prototype)
+              = image_tag(@prototype.pictures.sub[1]) if @prototype.sub_img
               = pic.file_field :thumbnail, class: 'file_zone2'
               = pic.hidden_field :status, value: 'sub'
       %ul.proto-sub-list.list-group
         %li.list-group-item.col-md-4
           .image-upload#sub_img3
             = f.fields_for :pictures, (@prototype.pictures.sub[2]) do |pic|
-              = image_tag(@prototype.pictures.main[2].thumbnail) if @prototype.sub_img(@prototype)
+              = image_tag(@prototype.pictures.sub[2]) if @prototype.sub_img
               = pic.file_field :thumbnail, class: 'file_zone3'
               = pic.hidden_field :status, value: 'sub'
 
