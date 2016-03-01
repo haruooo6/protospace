@@ -6,18 +6,18 @@
           = f.text_field :title, placeholder: "Title"
     .row
       .col-md-12
-        .cover-image-upload
+        .cover-image-upload#upload0
           = f.fields_for :pictures do |pic|
-            = pic.file_field :thumbnail
+            = pic.file_field :thumbnail, class: 'file_zone0'
             = pic.hidden_field :status, value: 'main'
 
       .col-md-12
-      -3.times do
+      - 3.times do |i|    
         %ul.proto-sub-list.list-group
           %li.list-group-item.col-md-4
-            .image-upload
+            .image-upload{id: "upload#{i + 1}"}
               = f.fields_for :pictures do |pic|
-                = pic.file_field :thumbnail
+                = pic.file_field :thumbnail, class: "file_zone#{i + 1}"
                 = pic.hidden_field :status, value: 'sub'
 
     .row.proto-description

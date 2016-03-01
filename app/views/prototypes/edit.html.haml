@@ -6,19 +6,21 @@
           = f.text_field :title, placeholder: "Title"
     .row
       .col-md-12
-        .cover-image-upload
-          = f.fields_for :pictures do |pic|
-            = pic.file_field :thumbnail
-            = pic.hidden_field :status, value: :main
+        .cover-image-upload#upload0
+          = f.fields_for :pictures, (@prototype.pictures.main[0]) do |pic|
+            = image_tag(@prototype.pictures.main[0].thumbnail)
+            = pic.file_field :thumbnail, class: 'file_zone0'
+            = pic.hidden_field :status, value: 'main'
 
       .col-md-12
-      -3.times do
+      - 3.times do |i|
         %ul.proto-sub-list.list-group
           %li.list-group-item.col-md-4
-            .image-upload
-              = f.fields_for :pictures do |pic|
-                = pic.file_field :thumbnail
-                = pic.hidden_field :status, value: :sub
+            .image-upload{id: "upload#{i + 1}"}
+              = f.fields_for :pictures, (@prototype.pictures.sub[i]) do |pic|
+                = image_tag(@prototype.pictures.sub[i].thumbnail) if @prototype.sub_img?
+                = pic.file_field :thumbnail, class: "file_zone#{i + 1}"
+                = pic.hidden_field :status, value: 'sub'
 
     .row.proto-description
       .col-md-12
@@ -29,10 +31,8 @@
         %h4 Tag List
         .row
           .col-md-3
-            %input{type: "text", placeholder: "Web Design"}/
-          .col-md-3
-            %input{type: "text", placeholder: "UI"}/
-          .col-md-3
-            %input{type: "text", placeholder: "Application"}/
+            = text_field_tag "prototype[label][]", "", placeholder: "Web Design"
+            = text_field_tag "prototype[label][]", "", placeholder: "UI"
+            = text_field_tag "prototype[label][]", "", placeholder: "Application"
     .row.text-center.proto-btn
-      = f.submit 'Publish', class: "button btn btn-lg btn-primary btn-block"
+      = f.submit 'Publish', class: "button btn btn-lg btn-primary btn-block"  
