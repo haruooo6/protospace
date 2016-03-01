@@ -49,7 +49,6 @@
       = render @comments
 
     - if user_signed_in?
-      %form.form-inline{ role: "form" }
       = form_for [@prototype, @comment], remote: true do |f|
         %h4 Write a comment
         .row
