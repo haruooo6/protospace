@@ -1,20 +1,17 @@
 - if user_signed_in?
   - if prototype.like_user(current_user)
     = button_to prototype_like_path(prototype, likes), method: :delete, remote: true, class: "btn btn-default" do
-      = image_tag("icon_heart.svg")
+      = image_tag("red_heart.svg")
       Like
-      .num
       = prototype.likes_count
 
   - else
     = button_to prototype_likes_path(prototype), method: :create, remote: true, class: "btn btn-default" do
       = image_tag("icon_heart.svg")
       Like
-      .num
       = prototype.likes_count
 - else
   %button.btn.btn-default
     = image_tag("icon_heart.svg")
     Like
-    .num
     = prototype.likes_count

@@ -44,14 +44,11 @@
     %h4.col-md-12
       Comments
       %span.num
-        = @prototype.comments_count
-      .col-md-8
-
-      #comments
-        = render @comments
+      = @prototype.comments_count
+    #comments.col-md-8
+      = render @comments
 
     - if user_signed_in?
-      %form.form-inline{ role: "form" }
       = form_for [@prototype, @comment], remote: true do |f|
         %h4 Write a comment
         .row

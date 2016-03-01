@@ -1,11 +1,10 @@
 .media
   .media-left
-    %a{ href: "#" }
-      %img.media-object
-      = image_tag comment.user.avatar, size: "64x64", alt: "64x64"
+    = link_to user_path(comment.user) do
+      = image_tag comment.user.avatar, size: "64x64", alt: "64x64", class: 'media-object'
   .media-body
-    %h4#top-aligned-media.media-heading
-      = comment.user.nickname
-      %a.anchorjs-link{ href: "#top-aligned-media" }
-        %span.anchorjs-icon
-    = comment.comment
+    %h4#top-aligned-media.media-heading 
+      = link_to "#{comment.user.nickname}", user_path(comment.user)
+      %span.anchorjs-icon
+    %p
+      = comment.comment
