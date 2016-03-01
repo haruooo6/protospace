@@ -8,7 +8,7 @@
       .col-md-12
         .cover-image-upload#upload0
           = f.fields_for :pictures, (@prototype.pictures.main[0]) do |pic|
-            = image_tag(@prototype.pictures.main[0].thumbnail)
+            = image_tag @prototype.pictures.main[0].thumbnail
             = pic.file_field :thumbnail, class: 'file_zone0'
             = pic.hidden_field :status, value: 'main'
 
@@ -18,7 +18,7 @@
           %li.list-group-item.col-md-4
             .image-upload{id: "upload#{i + 1}"}
               = f.fields_for :pictures, (@prototype.pictures.sub[i]) do |pic|
-                = image_tag(@prototype.pictures.sub[i].thumbnail) if @prototype.sub_img?
+                = image_tag @prototype.pictures.sub[i].thumbnail if @prototype.sub_img?
                 = pic.file_field :thumbnail, class: "file_zone#{i + 1}"
                 = pic.hidden_field :status, value: 'sub'
 
