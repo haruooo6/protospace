@@ -56,4 +56,5 @@ group :development, :test do
   gem 'less-rails'
   gem 'twitter-bootstrap-rails'
   gem 'fog'
+  gem 'config'
 end
